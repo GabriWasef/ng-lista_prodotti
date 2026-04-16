@@ -1,0 +1,39 @@
+:host {
+	display: block;
+	min-height: 100dvh;
+	background: linear-gradient(180deg, #f0f4f8 0%, #d9e2ec 100%);
+	padding: 24px;
+	box-sizing: border-box;
+}
+
+.app-container {
+	max-width: 980px;
+	margin: 0 auto;
+}
+
+.app-header {
+	margin-bottom: 18px;
+}
+
+.app-header h1 {
+	margin: 0 0 6px;
+	color: #102a43;
+	font-size: 2rem;
+}
+
+.app-header p {
+	margin: 0;
+	color: #486581;
+}
+
+.app-content {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 16px;
+}
+
+@media (max-width: 800px) {
+	.app-content {
+		grid-template-columns: 1fr;
+	}
+}

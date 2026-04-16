@@ -1,0 +1,12 @@
+<section class="product-detail">
+	<h2>Dettaglio prodotto</h2>
+
+	<ng-container *ngIf="product">
+		<h3>{{ product.name }}</h3>
+		<p>
+			<strong>Prezzo:</strong>
+			{{ product.price | currency: 'EUR' : 'symbol' : '1.2-2' : 'it-IT' }}
+		</p>
+		<p><strong>Descrizione:</strong> {{ product.description }}</p>
+	</ng-container>
+</section>
