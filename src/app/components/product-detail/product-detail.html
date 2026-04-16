@@ -1,6 +1,7 @@
 <section class="product-detail">
 	<h2>Dettaglio prodotto</h2>
 
+	<!-- 🟢 CASO 1: Prodotto selezionato -->
 	<ng-container *ngIf="product">
 		<h3>{{ product.name }}</h3>
 		<p>
@@ -9,4 +10,9 @@
 		</p>
 		<p><strong>Descrizione:</strong> {{ product.description }}</p>
 	</ng-container>
+
+	<!-- 🔴 CASO 2: Nessun prodotto selezionato -->
+	<p *ngIf="!product" class="no-selection">
+		Nessun prodotto selezionato. Clicca su un prodotto dalla lista.
+	</p>
 </section>
