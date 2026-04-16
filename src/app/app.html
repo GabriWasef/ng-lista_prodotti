@@ -1,0 +1,15 @@
+<main class="app-container">
+  <header class="app-header">
+    <h1>Gestione lista prodotti</h1>
+    <p>Seleziona un prodotto dall'elenco per visualizzarne il dettaglio.</p>
+  </header>
+
+  <section class="app-content">
+    <app-product-list
+      [products]="products"
+      (selectProduct)="onSelectProduct($event)"
+    ></app-product-list>
+
+    <app-product-detail [product]="selectedProduct"></app-product-detail>
+  </section>
+</main>
