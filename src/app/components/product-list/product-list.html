@@ -1,10 +1,47 @@
 <section class="product-list">
 	<h2>Lista prodotti</h2>
 
+	<form class="add-product-form" #productForm="ngForm" (ngSubmit)="onAddProduct(productForm)">
+		<h3>Aggiungi nuovo prodotto</h3>
+
+		<label for="name">Nome</label>
+		<input id="name" name="name" type="text" [(ngModel)]="newProduct.name" required />
+
+		<label for="price">Prezzo</label>
+		<input
+			id="price"
+			name="price"
+			type="number"
+			[(ngModel)]="newProduct.price"
+			min="0.01"
+			step="0.01"
+			required
+		/>
+
+		<label for="description">Descrizione</label>
+		<textarea
+			id="description"
+			name="description"
+			rows="3"
+			[(ngModel)]="newProduct.description"
+			required
+		></textarea>
+
+		<button type="submit" [disabled]="productForm.invalid">Aggiungi prodotto</button>
+	</form>
+
 	<ul>
 		<li *ngFor="let product of products" (click)="onSelectProduct(product)">
-			<h3>{{ product.name }}</h3>
-			<p>{{ product.price | currency: 'EUR' : 'symbol' : '1.2-2' : 'it-IT' }}</p>
+			<div class="product-row">
+				<div>
+					<h3>{{ product.name }}</h3>
+					<p>{{ product.price | currency: 'EUR' : 'symbol' : '1.2-2' : 'it-IT' }}</p>
+				</div>
+
+				<button type="button" class="delete-btn" (click)="onDeleteProduct(product, $event)">
+					Elimina
+				</button>
+			</div>
 		</li>
 	</ul>
 </section>

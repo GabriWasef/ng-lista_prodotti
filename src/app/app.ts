@@ -43,4 +43,16 @@ export class App {
   onSelectProduct(product: Product): void {
     this.selectedProduct = product;
   }
+
+  addProduct(product: Product): void {
+    this.products = [...this.products, product];
+  }
+
+  deleteProduct(productToDelete: Product): void {
+    this.products = this.products.filter((product) => product !== productToDelete);
+
+    if (this.selectedProduct === productToDelete) {
+      this.selectedProduct = null;
+    }
+  }
 }
