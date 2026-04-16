@@ -8,6 +8,8 @@
     <app-product-list
       [products]="products"
       (selectProduct)="onSelectProduct($event)"
+      (addProduct)="addProduct($event)"
+      (deleteProduct)="deleteProduct($event)"
     ></app-product-list>
 
     <app-product-detail [product]="selectedProduct"></app-product-detail>
