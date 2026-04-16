@@ -15,10 +15,22 @@
 .product-detail h3 {
 	margin: 0 0 10px;
 	color: #243b53;
+	font-size: 1.1rem;
 }
 
 .product-detail p {
 	margin: 0 0 8px;
 	color: #334e68;
 	line-height: 1.4;
+}
+
+/* 🎨 Stile per il messaggio di nessuna selezione */
+.product-detail .no-selection {
+	color: #8b9aaa;
+	font-style: italic;
+	text-align: center;
+	padding: 40px 16px;
+	background: #f5f7fa;
+	border-radius: 8px;
+	margin-top: 20px;
 }
