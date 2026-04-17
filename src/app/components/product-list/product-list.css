@@ -85,6 +85,11 @@
 	transform: translateY(-1px);
 }
 
+.product-list li.selected {
+	border-color: #2680c2;
+	background-color: #e6f3fb;
+}
+
 .product-row {
 	display: flex;
 	justify-content: space-between;

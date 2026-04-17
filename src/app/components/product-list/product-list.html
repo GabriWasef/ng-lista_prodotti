@@ -31,7 +31,11 @@
 	</form>
 
 	<ul>
-		<li *ngFor="let product of products" (click)="onSelectProduct(product)">
+		<li
+			*ngFor="let product of products"
+			(click)="onSelectProduct(product)"
+			[class.selected]="product === selectedProduct"
+		>
 			<div class="product-row">
 				<div>
 					<h3>{{ product.name }}</h3>
