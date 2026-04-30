@@ -1,3 +1,6 @@
+<!-- Template del componente radice App.
+     Struttura la pagina in un'intestazione fissa e una sezione di contenuto
+     che affianca la lista prodotti al pannello di dettaglio. -->
 <main class="app-container">
   <header class="app-header">
     <h1>Gestione lista prodotti</h1>
@@ -5,10 +8,16 @@
   </header>
 
   <section class="app-content">
+    <!-- Lista dei prodotti.
+         Emette l'evento (selectProduct) quando l'utente clicca su un elemento
+         o elimina il prodotto selezionato; il valore è Product | null. -->
     <app-product-list
       (selectProduct)="onSelectProduct($event)"
     ></app-product-list>
 
+    <!-- Pannello di dettaglio del prodotto selezionato.
+         Riceve il prodotto tramite [product]; mostra un messaggio
+         se nessun prodotto è selezionato (product === null). -->
     <app-product-detail [product]="selectedProduct"></app-product-detail>
   </section>
 </main>

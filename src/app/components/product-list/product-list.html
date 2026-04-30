@@ -1,12 +1,19 @@
+<!-- Template del componente ProductList.
+     Mostra il form di aggiunta prodotto e la lista dei prodotti esistenti. -->
 <section class="product-list">
 	<h2>Lista prodotti</h2>
 
+	<!-- Form per aggiungere un nuovo prodotto.
+	     #productForm="ngForm" crea un riferimento locale al form (NgForm)
+	     per accedere allo stato di validazione nel template e passarlo a onAddProduct. -->
 	<form class="add-product-form" #productForm="ngForm" (ngSubmit)="onAddProduct(productForm)">
 		<h3>Aggiungi nuovo prodotto</h3>
 
+		<!-- Campo nome: obbligatorio; legato a newProduct.name tramite two-way binding -->
 		<label for="name">Nome</label>
 		<input id="name" name="name" type="text" [(ngModel)]="newProduct.name" required />
 
+		<!-- Campo prezzo: numero positivo con due decimali; obbligatorio -->
 		<label for="price">Prezzo</label>
 		<input
 			id="price"
@@ -18,6 +25,7 @@
 			required
 		/>
 
+		<!-- Campo descrizione: textarea obbligatoria -->
 		<label for="description">Descrizione</label>
 		<textarea
 			id="description"
@@ -27,9 +35,13 @@
 			required
 		></textarea>
 
+		<!-- Il pulsante è disabilitato finché il form non è valido -->
 		<button type="submit" [disabled]="productForm.invalid">Aggiungi prodotto</button>
 	</form>
 
+	<!-- Lista dei prodotti: *ngFor itera sull'array products.
+	     Cliccando su un <li> si seleziona il prodotto (onSelectProduct).
+	     La classe CSS "selected" viene applicata all'elemento attivo. -->
 	<ul>
 		<li
 			*ngFor="let product of products"
@@ -38,10 +50,14 @@
 		>
 			<div class="product-row">
 				<div>
+					<!-- Nome del prodotto -->
 					<h3>{{ product.name }}</h3>
+					<!-- Prezzo formattato in euro secondo il locale italiano (es. € 14,90) -->
 					<p>{{ product.price | currency: 'EUR' : 'symbol' : '1.2-2' : 'it-IT' }}</p>
 				</div>
 
+				<!-- Pulsante di eliminazione: stopPropagation è gestito in onDeleteProduct
+				     per evitare che il click selezioni anche il prodotto -->
 				<button type="button" class="delete-btn" (click)="onDeleteProduct(product, $event)">
 					Elimina
 				</button>
