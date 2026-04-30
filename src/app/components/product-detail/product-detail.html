@@ -1,11 +1,17 @@
+<!-- Template del componente ProductDetail.
+     Mostra nome, prezzo e descrizione del prodotto selezionato,
+     oppure un messaggio di invito alla selezione se nessun prodotto è attivo. -->
 <section class="product-detail">
 	<h2>Dettaglio prodotto</h2>
 
-	<!-- 🟢 CASO 1: Prodotto selezionato -->
+	<!-- 🟢 CASO 1: Prodotto selezionato
+	     ng-container non aggiunge nodi al DOM: serve solo come
+	     wrapper logico per la direttiva *ngIf. -->
 	<ng-container *ngIf="product">
 		<h3>{{ product.name }}</h3>
 		<p>
 			<strong>Prezzo:</strong>
+			<!-- Prezzo formattato in euro con il locale italiano (es. € 799,99) -->
 			{{ product.price | currency: 'EUR' : 'symbol' : '1.2-2' : 'it-IT' }}
 		</p>
 		<p><strong>Descrizione:</strong> {{ product.description }}</p>

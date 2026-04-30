@@ -1,13 +1,19 @@
 <!doctype html>
+<!-- Pagina HTML principale dell'applicazione.
+     Angular sostituisce il tag <app-root> con il contenuto
+     del componente radice (App) al momento del bootstrap. -->
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <title>NgListaProdotti</title>
+    <!-- base href "/" indica ad Angular Router di usare la radice del sito come base per i percorsi -->
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
   </head>
   <body>
+    <!-- Punto di montaggio dell'applicazione Angular.
+         Il componente App viene renderizzato qui da Angular. -->
     <app-root></app-root>
   </body>
 </html>
